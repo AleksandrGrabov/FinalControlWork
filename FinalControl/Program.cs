@@ -9,3 +9,16 @@ foreach (string item in filteredArray)
     Console.WriteLine(item);
 }
 Console.ReadKey();
+
+
+string[] FilterArray(string[] originalArray)
+
+int count = 0;
+for (int i = 0; i < originalArray.Length; i++)
+{
+  if (originalArray[i].Length <= 3)
+  {
+    filteredArray[count] = originalArray[i];
+    count++;
+  }
+}
