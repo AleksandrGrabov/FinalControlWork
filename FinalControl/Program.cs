@@ -2,23 +2,40 @@
         string input = Console.ReadLine();
         string[] originalArray = input.Split(',');
 
-string[] filteredArray = FilterArray(originalArray);
-Console.WriteLine("Обработанный массив:"); 
-foreach (string item in filteredArray)
-{
-    Console.WriteLine(item);
-}
-Console.ReadKey();
+        // Шаг 3: Вызов метода FilterArray и вывод результата
+        string[] filteredArray = FilterArray(originalArray);
+        Console.WriteLine("Обработанный массив:");
+        foreach (string item in filteredArray)
+        {
+            Console.WriteLine(item);
+        }
 
+            Console.ReadKey();
+    
 
-string[] FilterArray(string[] originalArray)
+    static string[] FilterArray(string[] originalArray)
+    {
+        int count = 0;
 
-int count = 0;
-for (int i = 0; i < originalArray.Length; i++)
-{
-  if (originalArray[i].Length <= 3)
-  {
-    filteredArray[count] = originalArray[i];
-    count++;
-  }
-}
+        for (int i = 0; i < originalArray.Length; i++)
+        {
+            if (originalArray[i].Length <= 3)
+            {
+                count++;
+            }
+        }
+
+        string[] filteredArray = new string[count];
+
+        count = 0;
+        for (int i = 0; i < originalArray.Length; i++)
+        {
+            if (originalArray[i].Length <= 3)
+            {
+                filteredArray[count] = originalArray[i];
+                count++;
+            }
+        }
+
+        return filteredArray;
+    }
